@@ -1,0 +1,59 @@
+<% include ../partials/header %>
+<div class="container">
+  <form id="contact" action="/clients/<%= client._id %>?_method=PUT" method="post" style = "margin-top:40px; margin-bottom:0;">
+    <h3>Contact Form</h3>
+    <fieldset>
+      <input type="text"  name="client[name]" value = "<%= client.name %>"  placeholder="Name" required autofocus>
+    </fieldset>
+    <fieldset>
+      <input type="text" name="client[phoneNumber1]"  value = "<%= client.phoneNumber1 %>" placeholder="Primary Number" required>
+    </fieldset>
+    <fieldset>
+      <input type="text" name="client[phoneNumber2]"  value = "<%=client.phoneNumber2 %>"  placeholder="Secondary Number">
+    </fieldset>
+    <fieldset>
+      <input type="text" name="client[phoneNumber3]"  value = "<%=client.phoneNumber3 %>"  placeholder="Tertiary Number">
+    </fieldset>
+    <fieldset>
+      <input type="text" name="client[age]" value = "<%=client.age %>"  placeholder="Age">
+    </fieldset>
+    <fieldset>
+      <input type="text" name="client[qualification]" value = "<%=client.qualification %>"  placeholder="Qualifications">
+    </fieldset>
+    <fieldset>
+      <input type="text" name="client[occupation]"  value = "<%=client.occupation %>"  placeholder="Occupation">
+    </fieldset>
+    <fieldset>
+      <input type="text" name="client[notes]"  value = "<%=client.notes %>"  placeholder="Notes">
+    </fieldset>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">Impression</label>
+      </div>
+      <select name = "client[impression]" class="custom-select" id="inputGroupSelect01">
+        <option value = "<%= client.impression %>" selected><%= client.impression %></option>
+        <option value="Bad">Bad</option>
+        <option value="Good">Good</option>
+        <option value="Great">Great</option>
+      </select>
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">Courses</label>
+      </div>
+      <select name = "client[course]" class="custom-select" id="inputGroupSelect01">
+        <option value = "<%= client.course %>" selected><%= client.course %></option>
+        <% for(course of courses){ %>
+          <option value="<%= course.name %>"><%= course.name %></option>
+        <% } %>
+      </select>
+    </div>
+
+    <fieldset>
+      <button type="submit" name="button" id = "contact-submit">Submit</button>
+    </fieldset>
+    </form>
+  </div>
+<% include ../partials/footer %>

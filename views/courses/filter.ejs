@@ -1,0 +1,20 @@
+<% include ../partials/header %>
+  <div class="container">
+    <form id = "contact" action="/clients/courses/:course" method="post">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Courses</label>
+        </div>
+        <select name = "courses" class="custom-select" id="inputGroupSelect01">
+          <option selected>Choose...</option>
+          <% for(course of courses){ %>
+            <option value="<%= course.name %>"><%= course.name %></option>
+          <% } %>
+        </select>
+      </div>
+      <fieldset>
+        <button type="submit" name="button">Submit</button>
+      </fieldset>
+    </form>
+  </div>
+<% include ../partials/footer %>

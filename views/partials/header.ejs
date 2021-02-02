@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/form.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+
+    <header class="main-header">
+        <nav class="main-header__nav">
+            <ul class="main-header__item-list">
+                <li class="main-header__item">
+                  <a class= "<%= path === '/clients'? 'active': '' %>" href="/clients">Enquire</a>
+                </li>
+                <li class="main-header__item">
+                  <a class= "<%= path === '/clients/new'? 'active': '' %>" href="/clients/new">Insert</a>
+                </li>
+                <li class="main-header__item">
+                  <a class= "<%= path === '/courses/new'? 'active': '' %>" href="/courses/new">Add Course</a>
+                </li>
+                <li class="main-header__item">
+                  <a class= "<%= path === '/clients/courses'? 'active': '' %>" href="/clients/courses">Filter By Course</a>
+                </li>
+                <!-- <li class="main-header__item">
+                  <a href="/backup">Backup</a>
+                </li> -->
+            </ul>
+            <ul class = "main-header__item-list ml-auto">
+                <% if(!user){ %>
+                  <li class="main-header__item">
+                    <a class= "<%= path === '/login'? 'active' : '' %>" href = "/login">Login</a>
+                  </li>
+                <% } else if(user){ %>
+                  <li class="main-header__item">
+                    <a href = "/logout">Logout</a>
+                  </li>
+                <% } %>
+            </ul>
+        </nav>
+    </header>

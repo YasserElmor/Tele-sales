@@ -1,0 +1,59 @@
+<% include ../partials/header %>
+<div class="container">
+  <form id="contact" action="/clients/new" method="post" style = "margin-top:40px; margin-bottom:0;">
+    <h3>Contact Form</h3>
+    <fieldset>
+      <input type="text"  name="name"  placeholder="Name" required autofocus>
+    </fieldset>
+    <fieldset>
+      <input type="text" name="phoneNumber1"  value="<%= number %>" placeholder="Primary Number" required>
+    </fieldset>
+    <fieldset>
+      <input type="text" name="phoneNumber2"  value=""  placeholder="Secondary Number">
+    </fieldset>
+    <fieldset>
+      <input type="text" name="phoneNumber3"  value=""  placeholder="Tertiary Number">
+    </fieldset>
+    <fieldset>
+      <input type="text" name="age" value=""  placeholder="Age">
+    </fieldset>
+    <fieldset>
+      <input type="text" name="qualification" value=""  placeholder="Qualifications">
+    </fieldset>
+    <fieldset>
+      <input type="text" name="occupation"  value=""  placeholder="Occupation">
+    </fieldset>
+    <fieldset>
+      <input type="text" name="notes"  value=""  placeholder="Notes">
+    </fieldset>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">Impression</label>
+      </div>
+      <select name = "impression" class="custom-select" id="inputGroupSelect01">
+        <option selected>Choose...</option>
+        <option value="Bad">Bad</option>
+        <option value="Good">Good</option>
+        <option value="Great">Great</option>
+      </select>
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">Courses</label>
+      </div>
+      <select name = "courses" class="custom-select" id="inputGroupSelect01">
+        <option selected>Choose...</option>
+        <% for(course of courses){ %>
+          <option value="<%= course.name %>"><%= course.name %></option>
+        <% } %>
+      </select>
+    </div>
+
+    <fieldset>
+      <button type="submit" name="button" id = "contact-submit">Submit</button>
+    </fieldset>
+    </form>
+  </div>
+<% include ../partials/footer %>

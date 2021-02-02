@@ -1,0 +1,43 @@
+<% include ../partials/header %>
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Name</th>
+          <th scope="col">Primary Number</th>
+          <th scope="col">Course</th>
+          <th scope="col">Impression</th>
+          <th scope="col">Notes</th>
+          <th scope="col">Secondary Number</th>
+          <th scope="col">Tertiary Number</th>
+          <th scope="col">Age</th>
+          <th scope="col">Qualification</th>
+          <th scope="col">Occupation</th>
+          <% if(user){ %>
+            <th scope="col">Edit</th>
+          <% } %>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% for(client of clients){ %>
+        <tr>
+          <th scope="row"><%= client.date %></th>
+          <td><%= client.name %></td>
+          <td><%= client.phoneNumber1 %></td>
+          <td><%= client.course %></td>
+          <td><%= client.impression %></td>
+          <td><%= client.notes %></td>
+          <td><%= client.phoneNumber2 %></td>
+          <td><%= client.phoneNumber3 %></td>
+          <td><%= client.age  %></td>
+          <td><%= client.qualification  %></td>
+          <td><%= client.occupation %></td>
+          <% if(user){ %>
+            <td><a class = "btn btn-info btn-sm" href ="/clients/<%= client._id %>/edit">Edit Log</a></td>
+          <% } %>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  <% include ../partials/footer %>
